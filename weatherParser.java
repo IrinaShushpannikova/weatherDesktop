@@ -31,7 +31,8 @@ public class weatherParser {
         return page;
     }
 
-    public static String doParser(JTextField input) throws Exception {
+    @lombok.SneakyThrows
+    public static String doParser(JTextField input) {
         Document page = getPage(input);
         Element region = page.select("ol[class=breadcrumbs__list]").first();
         Element timeFromTable = page.select("time[class=time fact__time]").first();

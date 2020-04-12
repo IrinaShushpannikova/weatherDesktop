@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.text.html.parser.Parser;
 
 
 public class WeatherGUI extends JFrame {
@@ -17,12 +18,10 @@ public class WeatherGUI extends JFrame {
         container.setLayout(new GridLayout(3, 2, 2, 2));
         container.add(label);
         container.add(input);
-        button.addActionListener(e -> buttonClick());
-        container.add(button);
-    }
 
-    @lombok.SneakyThrows
-    private void buttonClick() {
-        JOptionPane.showMessageDialog(null, (new weatherParser()).doParser(input), "", JOptionPane.PLAIN_MESSAGE);
+        button.addActionListener(e -> {
+                    JOptionPane.showMessageDialog(null, weatherParser.doParser(input), "", JOptionPane.PLAIN_MESSAGE);
+                });
+        container.add(button);
     }
 }
