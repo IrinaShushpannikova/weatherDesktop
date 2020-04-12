@@ -82,7 +82,8 @@ public class weatherParser {
     }
 
     private static String recommendClothes(String temperatureLike) throws Exception {
-        int tempFromStringToInt = Integer.valueOf(temperatureLike);
+
+        int tempFromStringToInt = Integer.valueOf(temperatureLike.replaceAll("−", "-"));
 
         if (tempFromStringToInt <= (-40)) {
             return "Пожалуйста, оставайтесь дома. Температура ниже 40 градусов. Если все-таки решите выйти на улицу, наденьте очень теплую зимнюю одежду.";
